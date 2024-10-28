@@ -27,7 +27,7 @@ export class ListarComponent implements OnInit {
   }
 
   verDetalles(id: number): void {
-    this.router.navigate(['/detalle', id]); // Navega al componente de detalles
+    this.router.navigate(['/detalle', id]);
   }
 
   irAInsertarEvento(): void {
@@ -35,7 +35,7 @@ export class ListarComponent implements OnInit {
   }
 
   editarDetalles(id: number): void {
-    this.router.navigate(['/editar', id]); // Navega al componente de detalles
+    this.router.navigate(['/editar', id]); 
   }
 
   borrarEvento(id:number): void{
