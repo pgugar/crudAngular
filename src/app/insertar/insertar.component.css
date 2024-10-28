@@ -6,11 +6,16 @@ body {
     margin: 0;
     padding: 20px;
   }
-  
+
+ h1, h2 {
+    font-family: "Roboto", Helvetica, sans-serif;
+  }
+
   /* Contenedor del formulario */
   form {
     max-width: 600px;
     margin: 0 auto;
+    margin-top:30px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -37,7 +42,16 @@ body {
     box-sizing: border-box; /* Incluye padding y border en el ancho total */
     font-size: 16px;
   }
-  
+
+  .label-checkbox{
+    display:inline;
+  }
+
+  input[type="checkbox"]{
+    display:inline;
+    transform: scale(1.5);
+    margin-left:10px;
+  }
   /* Estilo para el área de texto */
   textarea {
     resize: vertical; /* Permitir el cambio de tamaño vertical */
@@ -50,7 +64,7 @@ body {
   
   /* Botón de envío */
   button {
-    background-color: #007bff; /* Color de fondo azul */
+    /*background-color: #007bff;*/ /* Color de fondo azul */
     border: none;
     color: white;
     padding: 10px 20px;
@@ -61,25 +75,30 @@ body {
     width: 100%; /* Botón ocupa todo el ancho */
     
   }
-  
-  /* Efecto hover para el botón */
-  button:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
-  }
-  
+    /* boton de enviar */
+    .submit-button {
+      background-color: #5ca2ec !important; /* Color más oscuro al pasar el mouse */
+    }
+    .submit-button:hover {
+      background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+    }
+
   /* Mensaje de estado */
   p {
     text-align: center; /* Centramos el mensaje */
     color: #333; /* Color del mensaje */
   }
   
-  /* Botón de salida */
+  /* Botón de salida */ 
   button:last-of-type {
-    background-color: #6c757d; /* Color gris */
-    margin-top: 10px; /* Espacio arriba del botón de salida */
+    background-color: #3977b9;
+    margin-top: 10px; 
   }
   
   button:last-of-type:hover {
-    background-color: #5a6268; /* Color más oscuro al pasar el mouse */
+    background-color: #1d5884; 
   }
+
+
+  
   

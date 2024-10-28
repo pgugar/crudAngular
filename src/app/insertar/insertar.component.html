@@ -1,4 +1,5 @@
 <form (ngSubmit)="onSubmit()" #eventoForm="ngForm">
+  <h2>Crear usuario</h2>
   <label for="nombre">Nombre:</label>
   <input type="text" id="nombre" [(ngModel)]="evento.nombre" name="nombre" #nombre="ngModel" required minlength="2" maxlength="50">
   
@@ -25,7 +26,7 @@
   <label for="preciomax">Precio Máximo:</label>
   <input type="number" id="preciomax" [(ngModel)]="evento.preciomax" name="preciomax" required min="0">
 
-  <label for="genero">Género:</label>
+  <label for="genero">Género musical:</label>
   <input type="text" id="genero" [(ngModel)]="evento.genero" name="genero" #genero="ngModel" required maxlength="50">
   <div *ngIf="eventoForm.submitted && genero.invalid">
     <small *ngIf="genero.errors?.['required']" style="color: red;">El género no puede estar en blanco.</small>
@@ -41,12 +42,12 @@
     <small *ngIf="localidad.errors?.['maxlength']" style="color: red;">La localidad no puede tener más de 50 caracteres.</small>
   </div>
   <div>
-    <label for="activo">Activo:</label>
+    <label for="activo" class="label-checkbox">Activo: </label>
     <input type="checkbox" id="activo" [(ngModel)]="evento.activo" name="activo">
   </div>
 
-  <button type="submit">Crear Evento</button>
+  <button type="submit" class="submit-button">Crear Evento</button>
 </form>
 
 <p *ngIf="mensaje">{{ mensaje }}</p>
-<button (click)="irALista()">Salir</button>
+<button (click)="irALista()" class="exit-button">Volver a la lista sin guardar</button>

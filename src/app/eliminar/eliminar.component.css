@@ -1,12 +1,19 @@
-/* Estilos generales */
+/* Estilos generales *//*
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     color: #333;
     margin: 0;
     padding: 20px;
+  }*/
+
+  .delete-container{
+    margin:0 auto;
+    margin-top:30px;
+    max-width:600px;
+    background-color: #ffffff;
   }
-  
+
   /* Contenedor principal */
   div {
     max-width: 600px;
@@ -36,8 +43,10 @@ body {
   }
   
   /* Botón de eliminación */
-  button {
+  .delete-button {
     background-color: #d9534f;
+  }
+  button{
     border: none;
     color: white;
     padding: 10px 20px;
@@ -45,10 +54,10 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 25%;
+    /*width: 25%;*/
     text-align: center;
+    margin:5px;
   }
-  
   /* Efecto hover para el botón */
   button:hover {
     background-color: #c9302c;
@@ -66,4 +75,14 @@ body {
     text-align: center;
     margin-top: 20px;
   }
+
+  .exit-button{
+    background-color: #3977b9;
+    transition: background-color 0.3s ease;
+  }
+  .exit-button:hover{
+    background-color: #1d5884;
+  }
+
+ 
    

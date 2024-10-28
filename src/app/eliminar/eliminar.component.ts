@@ -39,6 +39,9 @@ export class EliminarComponent {
     }
   }
 
+  irALista(): void {
+    this.router.navigate(['/listar']); // Asegúrate de que la ruta '/listar' está definida
+  }
 }
 
 

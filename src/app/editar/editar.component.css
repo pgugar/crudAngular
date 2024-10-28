@@ -1,85 +1,102 @@
 /* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2 {
+  font-family: "Roboto", Helvetica, sans-serif;
+}
+
+/* Contenedor del formulario */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top:30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Etiquetas de los campos */
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block; /* Asegúrate de que las etiquetas ocupen una línea completa */
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px 0; /* Espacio entre campos */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  font-size: 16px;
+}
+
+.label-checkbox{
+  display:inline;
+}
+
+input[type="checkbox"]{
+  display:inline;
+  transform: scale(1.5);
+  margin-left:10px;
+}
+/* Estilo para el área de texto */
+textarea {
+  resize: vertical; /* Permitir el cambio de tamaño vertical */
+}
+
+/* Estilo para mensajes de error */
+small {
+  color: red;
+}
+
+/* Botón de envío */
+button {
+  /*background-color: #007bff;*/ /* Color de fondo azul */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Botón ocupa todo el ancho */
+}
+  /* boton de enviar */
+  .submit-button {
+    background-color: #5ca2ec !important; /* Color más oscuro al pasar el mouse */
   }
-  
-  /* Contenedor del formulario */
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  /* Etiquetas de los campos */
-  label {
-    font-weight: bold;
-    margin-top: 10px;
-    display: block; /* Asegúrate de que las etiquetas ocupen una línea completa */
-  }
-  
-  /* Campos de entrada */
-  input[type="text"],
-  input[type="number"],
-  input[type="datetime-local"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 20px 0; /* Espacio entre campos */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Incluye padding y border en el ancho total */
-    font-size: 16px;
-  }
-  
-  /* Estilo para el área de texto */
-  textarea {
-    resize: vertical; /* Permitir el cambio de tamaño vertical */
-  }
-  
-  /* Estilo para mensajes de error */
-  small {
-    color: red;
-  }
-  
-  /* Botón de envío */
-  button {
-    background-color: #007bff; /* Color de fondo azul */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Botón ocupa todo el ancho */
-    
-  }
-  
-  /* Efecto hover para el botón */
-  button:hover {
+  .submit-button:hover {
     background-color: #0056b3; /* Color más oscuro al pasar el mouse */
   }
-  
-  /* Mensaje de estado */
-  p {
-    text-align: center; /* Centramos el mensaje */
-    color: #333; /* Color del mensaje */
-  }
-  
-  /* Botón de salida */
-  button:last-of-type {
-    background-color: #6c757d; /* Color gris */
-    margin-top: 10px; /* Espacio arriba del botón de salida */
-  }
-  
-  button:last-of-type:hover {
-    background-color: #5a6268; /* Color más oscuro al pasar el mouse */
-  }
-  
+
+/* Mensaje de estado */
+p {
+  text-align: center; 
+  color: #333; 
+}
+
+/* Botón de salida */ 
+button:last-of-type {
+  background-color: #3977b9;
+  margin-top: 10px; 
+}
+
+button:last-of-type:hover {
+  background-color: #1d5884; 
+}
+
+
+

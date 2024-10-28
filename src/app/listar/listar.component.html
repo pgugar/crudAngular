@@ -1,16 +1,25 @@
-<div>
-  <h1>Dashboard de Gestión de Eventos de CAPTICKETS</h1>
-  <button (click)="irAInsertarEvento()">Añadir Evento</button>
+<div class="big-container">
+
+  <div class="title-container">
+    <h1>CapTickets Dashboard</h1>
+    <h2>Gestión de Eventos</h2>
+    <button (click)="irAInsertarEvento()" class="add-event-button">+</button>
+  </div>
+
+  <div class="lista-container">
   <ul>
-    <li *ngFor="let evento of eventos">
-      <h3>ID: {{ evento.id }}</h3> 
-      <h3>Nombre: {{ evento.nombre }}</h3> 
-      <h3>Activo: {{ evento.activo }}</h3> 
-      <button (click)="verDetalles(evento.id)">Ver Detalles</button>
-      <button (click)="editarDetalles(evento.id)">Editar Detalles</button>
-      <button (click)="borrarEvento(evento.id)">Borrar Evento</button>
+    <li *ngFor="let evento of eventos" [ngClass]="{ 'activo': evento.activo, 'inactivo': !evento.activo }">
+      <p>ID: {{ evento.id }}</p> 
+      <p>Nombre: {{ evento.nombre }}</p> 
+      <p>Estado: {{ evento.activo ? 'Activo' : 'Inactivo' }}</p> 
+      <button (click)="verDetalles(evento.id)" class="see-more-button">Ver detalles</button>
+      <button (click)="editarDetalles(evento.id)" class="update-button">Editar detalles</button>
+      <div *ngIf="evento.activo" style="display:inline;">
+        <button (click)="borrarEvento(evento.id)" class="del-event-button">Eliminar evento</button>
+      </div>
     </li>
   </ul>
+  </div>
 </div>
 
   
