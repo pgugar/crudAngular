@@ -1,7 +1,7 @@
 export interface EventoDTORequest {
     nombre: string;
     descripcion: string;
-    fechaevento: string; // Asegúrate de que este formato sea correcto
+    fechaevento: string; 
     preciomax: number;
     preciomin: number;
     genero: string;
