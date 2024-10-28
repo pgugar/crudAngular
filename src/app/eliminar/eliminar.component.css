@@ -1,0 +1,69 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Contenedor principal */
+  div {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo para mensajes de alerta */
+  div[mensaje] {
+    padding: 15px;
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /* Título principal */
+  h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  /* Botón de eliminación */
+  button {
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 25%;
+    text-align: center;
+  }
+  
+  /* Efecto hover para el botón */
+  button:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Efecto cuando se presiona el botón */
+  button:active {
+    background-color: #ac2925;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+  }
+  
+  /* Contenedor del botón */
+  button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+   

@@ -1,0 +1,16 @@
+<div>
+  <h1>Dashboard de Gestión de Eventos de CAPTICKETS</h1>
+  <button (click)="irAInsertarEvento()">Añadir Evento</button>
+  <ul>
+    <li *ngFor="let evento of eventos">
+      <h3>ID: {{ evento.id }}</h3> 
+      <h3>Nombre: {{ evento.nombre }}</h3> 
+      <h3>Activo: {{ evento.activo }}</h3> 
+      <button (click)="verDetalles(evento.id)">Ver Detalles</button>
+      <button (click)="editarDetalles(evento.id)">Editar Detalles</button>
+      <button (click)="borrarEvento(evento.id)">Borrar Evento</button>
+    </li>
+  </ul>
+</div>
+
+  
