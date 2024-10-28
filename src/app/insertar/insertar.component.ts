@@ -20,12 +20,12 @@ export class InsertarComponent {
     activo: true 
   };
 
-  mensaje: string | null = null;
+  mensaje: string | null = null; // Mensaje para mostrar al usuario
   minDate: string; // Atributo para la fecha mínima
 
   constructor(private eventoService: EventoService, private router: Router) {
     const ahora = new Date();
-    this.minDate = ahora.toISOString().slice(0, 16); // Esto establece la fecha mínima como la fecha actual en formato YYYY-MM-DDTHH:MM
+    this.minDate = ahora.toISOString().slice(0, 16); // Establece la fecha mínima como la fecha actual en formato YYYY-MM-DDTHH:MM
   }
 
   onSubmit() {
@@ -46,12 +46,29 @@ export class InsertarComponent {
     this.eventoService.crearEvento(this.evento).subscribe(
       response => {
         console.log('Evento creado:', response);
-        // Manejar la respuesta aquí (por ejemplo, redirigir o mostrar un mensaje)
+        this.mensaje = '¡Evento creado con éxito!'; // Asigna un mensaje de éxito
+        // Opcional: Reiniciar el formulario después de la creación
+        this.resetFormulario();
       },
       error => {
         console.error('Error al crear el evento');
+        this.mensaje = 'Error al crear el evento. Intenta de nuevo.'; // Mensaje de error
       }
     );
+  }
+
+  // Método para reiniciar el formulario
+  private resetFormulario() {
+    this.evento = {
+      nombre: '',
+      descripcion: '',
+      fechaevento: '',
+      preciomax: 0,
+      preciomin: 0,
+      genero: '',
+      localidad: '',
+      activo: true 
+    };
   }
 
   irALista(): void {
