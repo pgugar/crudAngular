@@ -9,7 +9,7 @@ import { Evento } from '../model/evento';
   styleUrls: ['./detalle.component.css']
 })
 export class DetalleComponent implements OnInit {
-  evento: Evento | null = null; // Inicializa evento como nulo
+  evento: Evento | null = null; 
 
   constructor(
     private route: ActivatedRoute,
@@ -19,32 +19,32 @@ export class DetalleComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('ID del evento:', id); // Para depuración
+    console.log('ID del evento:', id); 
     this.obtenerEvento(id);
   }
 
   obtenerEvento(id: number): void {
     this.eventoService.getEvento(id).subscribe(
-      (response: any) => { // Cambia `Evento` a `any` temporalmente
-        if (response.data) { // Verifica que `data` exista
-          this.evento = response.data; // Asigna el evento desde `response.data`
+      (response: any) => { 
+        if (response.data) { 
+          this.evento = response.data; 
         } else {
           console.error('No se encontraron datos del evento');
         }
-        console.log('Datos del evento:', this.evento); // Para depuración
+        console.log('Datos del evento:', this.evento); 
       },
       error => {
         console.error('Error al obtener el evento:', error);
-        // Manejo de errores aquí (puedes agregar una notificación o redirigir)
       }
     );
   }
   
 
   irALista(): void {
-    this.router.navigate(['/listar']); // Asegúrate que la ruta '/listar' está definida
+    this.router.navigate(['/listar']); 
   }
 }
+
 
 
 
