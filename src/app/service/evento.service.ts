@@ -20,8 +20,19 @@ export class EventoService {
     );
   }
 
-  getEvento(id: number): Observable<EventoDTORequest> {
-    return this.http.get<EventoDTORequest>(`${this.baseUrl}/${id}`).pipe(
+  
+  getEvento(id: number): Observable<Evento> {
+    return this.http.get<Evento>(`${this.baseUrl}/${id}`).pipe(
+      catchError(err => {
+        console.error('Error al obtener el evento:', err);
+        return throwError(() => new Error('Error al obtener el evento: ' + err.message));
+      })
+    );
+  }
+
+  getEventoMap(id: number): Observable<Evento> {
+    return this.http.get<{ data: Evento }>(`${this.baseUrl}/${id}`).pipe(
+      map(response => response.data),
       catchError(err => {
         console.error('Error al obtener el evento:', err);
         return throwError(() => new Error('Error al obtener el evento: ' + err.message));
