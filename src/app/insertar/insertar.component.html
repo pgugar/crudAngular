@@ -32,14 +32,14 @@
     <small *ngIf="genero.errors?.['maxlength']" style="color: red;">El género no puede tener más de 50 caracteres.</small>
   </div>
 
-
   <label for="localidad">Localidad:</label>
-  <input type="text" id="localidad" [(ngModel)]="evento.localidad" name="localidad" #localidad="ngModel" required maxlength="50" >
+  <input type="text" id="localidad" [(ngModel)]="evento.localidad" name="localidad" #localidad="ngModel" required maxlength="50">
 
   <div *ngIf="eventoForm.submitted && localidad.invalid">
     <small *ngIf="localidad.errors?.['required']" style="color: red;">La localidad no puede estar en blanco.</small>
     <small *ngIf="localidad.errors?.['maxlength']" style="color: red;">La localidad no puede tener más de 50 caracteres.</small>
   </div>
+  
   <div>
     <label for="activo">Activo:</label>
     <input type="checkbox" id="activo" [(ngModel)]="evento.activo" name="activo">
