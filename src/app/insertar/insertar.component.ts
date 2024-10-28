@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventoService } from '../service/evento.service';
-import { EventoDTORequest } from '../model/eventoDTO'; // Importa el modelo
+import { EventoDTORequest } from '../model/eventoDTO'; 
 
 @Component({
-  selector: 'app-insertar',  // Cambia el selector si es necesario
+  selector: 'app-insertar',  
   templateUrl: './insertar.component.html',
   styleUrls: ['./insertar.component.css']
 })
@@ -12,7 +12,7 @@ export class InsertarComponent {
   evento: EventoDTORequest = {
     nombre: '',
     descripcion: '',
-    fechaevento: '',  // Mantener como string en formato YYYY-MM-DD
+    fechaevento: '',  
     preciomax: 0,
     preciomin: 0,
     genero: '',
@@ -28,6 +28,13 @@ export class InsertarComponent {
     this.minDate = ahora.toISOString().slice(0, 16); // Establece la fecha mínima como la fecha actual en formato YYYY-MM-DDTHH:MM
   }
 
+  /**
+   * onSubmit: Método que se ejecuta cuando el formulario es enviado.
+   * - Formatea la fecha del evento en el formato 'YYYY-MM-DD HH:MM'.
+   * - Verifica los datos del evento e imprime en consola los datos a enviar.
+   * - Llama al servicio `EventoService` para crear un nuevo evento.
+   * - Muestra un mensaje de éxito si el evento es creado correctamente o un mensaje de error si ocurre un problema.
+   */
   onSubmit() {
     if (this.evento.fechaevento) {
       const date = new Date(this.evento.fechaevento);
@@ -43,12 +50,12 @@ export class InsertarComponent {
     // Verifica los datos antes de enviarlos
     console.log('Datos a enviar:', this.evento);
 
+    // Llama al servicio para crear el evento
     this.eventoService.crearEvento(this.evento).subscribe(
       response => {
         console.log('Evento creado:', response);
         this.mensaje = '¡Evento creado con éxito!'; // Asigna un mensaje de éxito
-        // Opcional: Reiniciar el formulario después de la creación
-        this.resetFormulario();
+        this.resetFormulario(); // Reinicia el formulario después de la creación
       },
       error => {
         console.error('Error al crear el evento');
@@ -57,7 +64,10 @@ export class InsertarComponent {
     );
   }
 
-  // Método para reiniciar el formulario
+  /**
+   * resetFormulario: Método privado que reinicia el formulario del evento.
+   * Se usa para limpiar los campos después de que el evento se haya creado correctamente.
+   */
   private resetFormulario() {
     this.evento = {
       nombre: '',
@@ -71,8 +81,12 @@ export class InsertarComponent {
     };
   }
 
+  /**
+   * irALista: Método que redirige al usuario a la lista de eventos.
+   * Utiliza el router para navegar a la ruta '/listar'.
+   */
   irALista(): void {
-    this.router.navigate(['/listar']); // Asegúrate que la ruta '/listar' está definida
+    this.router.navigate(['/listar']); 
   }
 }
 
