@@ -9,16 +9,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./editar.component.css']
 })
 export class EditarComponent implements OnInit {
-  evento:any={};
+  evento: any = {};
   eventoForm!: FormGroup; // Formulario reactivo
   mensaje: string | null = null;
+  mensajeError: string | null = null; // Mensaje de error
+  mensajeExito: string | null = null; // Mensaje de éxito
   minDate: string = '';  // Variable para almacenar la fecha mínima
 
   constructor(
     private eventoService: EventoService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder  // Inyectamos FormBuilder
+    private formBuilder: FormBuilder // Inyectamos FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -29,15 +31,15 @@ export class EditarComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       descripcion: ['', Validators.required],
       fechaevento: ['', Validators.required],
-      preciomin: ['', [Validators.required, Validators.min(0)]],
-      preciomax: ['', [Validators.required, Validators.min(0)]],
+      preciomin: [0, [Validators.required, Validators.min(0)]], // Establece un valor por defecto
+      preciomax: [0, [Validators.required, Validators.min(0)]],
       genero: ['', [Validators.required, Validators.maxLength(50)]],
       localidad: ['', [Validators.required, Validators.maxLength(50)]],
       activo: [false]
     });
 
     // Cargar los datos del evento
-    this.eventoService.getEvento(id).subscribe(
+    this.eventoService.getEventoMap(id).subscribe(
       (data) => {
         this.eventoForm.patchValue(data); // Cargar los datos en el formulario
       },
@@ -59,7 +61,7 @@ export class EditarComponent implements OnInit {
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${year}-${month}-${day}T${hours}:${minutes}`;
+    return `${year}-${month}-${day}T${hours}:${minutes}`; // Asegúrate de que sea el formato correcto
   }
 
   onSubmit(): void {
@@ -74,7 +76,7 @@ export class EditarComponent implements OnInit {
       const day = String(date.getDate()).padStart(2, '0');
       const hours = String(date.getHours()).padStart(2, '0');
       const minutes = String(date.getMinutes()).padStart(2, '0');
-      eventoData.fechaevento = `${year}-${month}-${day} ${hours}:${minutes}`;
+      eventoData.fechaevento = `${year}-${month}-${day} ${hours}:${minutes}`; // Cambia esto si tu API necesita otro formato
 
       console.log('Datos a enviar:', eventoData); // Imprimir datos antes de enviar
 
@@ -82,11 +84,12 @@ export class EditarComponent implements OnInit {
       this.eventoService.editarEvento(eventoData, id).subscribe(
         (response) => {
           console.log('Evento editado:', response);
+          this.mensaje = 'Evento editado correctamente.'; // Mensaje de éxito
           this.router.navigate(['/listar']); // Redirigir a la lista después de editar
         },
         (error) => {
           console.error('Error al editar el evento:', error);
-          this.mensaje = 'Error al editar el evento: ' + error.message; // Manejar el error
+          this.mensaje = 'Error al editar el evento.'; // Manejar el error
         }
       );
     }
